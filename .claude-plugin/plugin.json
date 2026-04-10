@@ -1,0 +1,22 @@
+{
+  "name": "domain-whois-mcp",
+  "version": "1.0.0",
+  "description": "Domain WHOIS & RDAP lookups via native protocols. Check availability, get registrar info, bulk check up to 50 domains, discover TLD infrastructure via IANA. 8 tools, zero API keys.",
+  "author": {
+    "name": "kemalabuteliyte",
+    "url": "https://github.com/kemalabuteliyte"
+  },
+  "homepage": "https://github.com/kemalabuteliyte/domain-whois-mcp",
+  "repository": "https://github.com/kemalabuteliyte/domain-whois-mcp",
+  "license": "MIT",
+  "keywords": [
+    "whois",
+    "rdap",
+    "domain",
+    "dns",
+    "iana",
+    "mcp",
+    "domain-lookup",
+    "availability-check"
+  ]
+}

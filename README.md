@@ -8,6 +8,17 @@ An [MCP](https://modelcontextprotocol.io) server that lets Claude (and any MCP-c
 
 ## Install
 
+### Claude Code — Marketplace (single command, auto-install)
+
+This repo is its own Claude Code plugin marketplace. Add it in one step:
+
+```bash
+/plugin marketplace add kemalabuteliyte/domain-whois-mcp
+/plugin install domain-whois-mcp@domain-whois-marketplace
+```
+
+Or in the Claude Code UI: **`/plugin`** > **Browse marketplaces** > **Add marketplace** > paste `kemalabuteliyte/domain-whois-mcp` > install **domain-whois-mcp**.
+
 ### Claude Code — CLI (one command)
 
 ```bash

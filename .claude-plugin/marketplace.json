@@ -1,0 +1,27 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "domain-whois-marketplace",
+  "description": "Domain WHOIS & RDAP lookup tools for Claude Code — native protocols, IANA discovery, bulk checking.",
+  "owner": {
+    "name": "kemalabuteliyte",
+    "url": "https://github.com/kemalabuteliyte"
+  },
+  "plugins": [
+    {
+      "name": "domain-whois-mcp",
+      "description": "Domain WHOIS & RDAP lookups via native protocols. Check availability, get registrar info, bulk check up to 50 domains concurrently, discover TLD infrastructure via IANA. 8 tools: whois_lookup, rdap_lookup, domain_check, bulk_domain_check, tld_info, whois_raw, find_whois_server, rdap_bootstrap_info. Zero API keys required.",
+      "category": "development",
+      "source": "./",
+      "homepage": "https://github.com/kemalabuteliyte/domain-whois-mcp",
+      "license": "MIT",
+      "keywords": [
+        "whois",
+        "rdap",
+        "domain",
+        "dns",
+        "iana",
+        "availability"
+      ]
+    }
+  ]
+}

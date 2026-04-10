@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "domain-whois": {
+      "command": "npx",
+      "args": ["-y", "github:kemalabuteliyte/domain-whois-mcp"]
+    }
+  }
+}
