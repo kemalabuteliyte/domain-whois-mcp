@@ -1,0 +1,54 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kemalabuteliyte.domain-whois-mcp",
+  "description": "Domain WHOIS & RDAP lookups via native protocols. Check availability, get registrar info, bulk check up to 50 domains, discover TLD infrastructure — all via IANA, zero API keys needed.",
+  "repository": {
+    "url": "https://github.com/kemalabuteliyte/domain-whois-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "domain-whois-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "name": "whois_lookup",
+      "description": "Full WHOIS lookup via native TCP protocol with referral following and structured parsing"
+    },
+    {
+      "name": "rdap_lookup",
+      "description": "RDAP lookup returning structured JSON registration data"
+    },
+    {
+      "name": "domain_check",
+      "description": "Check if a domain is available for registration (RDAP first, WHOIS fallback)"
+    },
+    {
+      "name": "bulk_domain_check",
+      "description": "Check up to 50 domains concurrently with configurable parallelism"
+    },
+    {
+      "name": "tld_info",
+      "description": "Get TLD information from IANA including WHOIS/RDAP server assignments"
+    },
+    {
+      "name": "whois_raw",
+      "description": "Send raw WHOIS queries to any server (domains, IPs, ASNs)"
+    },
+    {
+      "name": "find_whois_server",
+      "description": "Discover WHOIS and RDAP servers for any domain or TLD"
+    },
+    {
+      "name": "rdap_bootstrap_info",
+      "description": "Browse IANA RDAP bootstrap data — which TLDs support RDAP"
+    }
+  ]
+}
