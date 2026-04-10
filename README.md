@@ -6,20 +6,54 @@ An [MCP](https://modelcontextprotocol.io) server that lets Claude (and any MCP-c
 
 ---
 
-## Install in One Click
+## Install
 
-### Claude Code (recommended)
-
-Run this single command:
+### Claude Code — CLI (one command)
 
 ```bash
 claude mcp add domain-whois -- npx -y github:kemalabuteliyte/domain-whois-mcp
 ```
 
-Or in the **Claude Code UI**: Settings > MCP Servers > Add Custom Server, paste:
+### Claude Code — UI
 
+1. Open Claude Code
+2. Go to **Settings** (gear icon or `/settings`)
+3. Navigate to **MCP Servers**
+4. Click **"Add MCP Server"** (or **"Add Custom Server"**)
+5. Fill in:
+   - **Name:** `domain-whois`
+   - **Command:** `npx`
+   - **Arguments:** `-y github:kemalabuteliyte/domain-whois-mcp`
+6. Click **Save**
+
+The server starts automatically — all 8 tools become available immediately.
+
+### Claude Code — JSON config
+
+You can also add it directly to your project's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "domain-whois": {
+      "command": "npx",
+      "args": ["-y", "github:kemalabuteliyte/domain-whois-mcp"]
+    }
+  }
+}
 ```
-npx -y github:kemalabuteliyte/domain-whois-mcp
+
+Or to your user config at `~/.claude.json`:
+
+```json
+{
+  "mcpServers": {
+    "domain-whois": {
+      "command": "npx",
+      "args": ["-y", "github:kemalabuteliyte/domain-whois-mcp"]
+    }
+  }
+}
 ```
 
 ### Claude Desktop
@@ -39,11 +73,16 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 
 Restart Claude Desktop after saving.
 
-### npm (if published)
+### npm (after `npm publish`)
 
 ```bash
+npm login
+npm publish
+# then anyone can install with:
 claude mcp add domain-whois -- npx -y domain-whois-mcp
 ```
+
+The npm package name `domain-whois-mcp` is available and reserved for this project.
 
 ---
 
