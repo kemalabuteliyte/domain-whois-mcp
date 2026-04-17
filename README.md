@@ -97,6 +97,46 @@ The npm package name `domain-whois-mcp` is available and reserved for this proje
 
 ---
 
+## What's Inside
+
+This is a **full Claude Code plugin** — not just an MCP connector. Installing it adds five surfaces:
+
+| Surface | What you get |
+|---------|--------------|
+| **8 MCP tools** | `whois_lookup`, `rdap_lookup`, `domain_check`, `bulk_domain_check`, `tld_info`, `whois_raw`, `find_whois_server`, `rdap_bootstrap_info` |
+| **4 skills** | `domain-lookup` (general WHOIS/RDAP), `project-name-finder` (brainstorm + bulk-check names), `domain-monitor` (expiry tracking), `tld-advisor` (pick the right TLD) |
+| **4 slash commands** | `/check-domain <domain>`, `/find-name <concept>`, `/domain-info <domain>`, `/tld <tld>` |
+| **1 agent** | `domain-strategist` — dedicated subagent for multi-step naming research |
+| **2 hooks** | `UserPromptSubmit` matcher that hints about domain checks when you say "starting a new project"; `PreToolUse` hook that watches Bash for `npm create` / `git init` / `cargo new` etc. and suggests `/find-name <project>` |
+
+---
+
+## Finding a name for your next project
+
+The headline workflow. Type:
+
+```
+/find-name ai invoicing
+```
+
+The `project-name-finder` skill (or the `domain-strategist` agent) will:
+
+1. Brainstorm 15–30 candidates inspired by your concept.
+2. Fan out across `.com .io .dev .ai .app .co` — usually 100+ lookups.
+3. Run `bulk_domain_check` with concurrency 5.
+4. Rank by `.com` availability, length, and multi-TLD coverage.
+5. Return a top-5 table:
+
+| Rank | Name | Available on | Why it works |
+|------|------|--------------|--------------|
+| 1 | `billr` | .com, .io, .dev | 5 chars, memorable, available on all three |
+| 2 | `invio` | .io, .dev, .ai | short, pronounceable |
+| ... | ... | ... | ... |
+
+You can also just ask naturally — *"I'm starting an AI invoicing SaaS, help me find a name"* — and the skill triggers automatically.
+
+---
+
 ## What It Does
 
 This MCP server gives your AI agent **8 tools** for complete domain name intelligence:

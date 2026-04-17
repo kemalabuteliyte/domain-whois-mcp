@@ -1,37 +1,22 @@
 ---
 name: domain-lookup
-description: >
-  Look up domain name registration information using WHOIS and RDAP protocols.
-  Check domain availability, get registrar info, expiration dates, nameservers,
-  and DNSSEC status. Supports bulk checking across multiple TLDs.
-triggers:
-  - domain lookup
-  - whois
-  - rdap
-  - domain check
-  - domain available
-  - domain availability
-  - domain registration
-  - domain expiry
-  - domain info
-  - tld info
-  - nameserver lookup
-  - bulk domain check
-  - check domains
+description: Look up domain name registration info via WHOIS and RDAP — availability, registrar, expiration, nameservers, DNSSEC. Use when the user asks about a specific domain's registration, whether a domain is taken, or wants raw WHOIS/RDAP data. Orchestrates the 8 domain-whois MCP tools.
 ---
 
-# Domain Lookup Skill
+# Domain Lookup
 
 Use the `domain-whois-mcp` tools to answer questions about domain names.
 
 ## When to Use
 
 - User asks about domain registration info (registrar, dates, nameservers, status)
-- User wants to check if a domain is available
+- User wants to check if a specific domain is available
 - User wants to check multiple domains at once
 - User asks about a TLD's WHOIS or RDAP servers
 - User needs raw WHOIS data for debugging or IP/ASN queries
 - User wants to know which protocol (WHOIS/RDAP) is available for a TLD
+
+If the user is *brainstorming a project name*, route to the `project-name-finder` skill instead.
 
 ## Tool Selection Guide
 
@@ -52,7 +37,6 @@ Use the `domain-whois-mcp` tools to answer questions about domain names.
 Use `domain_check` with method `auto`. It tries RDAP first (faster), falls back to WHOIS.
 
 ### Bulk availability across TLDs
-Use `bulk_domain_check` with a list of domain+TLD combinations:
 ```
 bulk_domain_check({
   domains: ["brand.com", "brand.io", "brand.dev", "brand.ai", "brand.co"],
@@ -61,22 +45,21 @@ bulk_domain_check({
 ```
 
 ### Full registration details
-Use `whois_lookup` for WHOIS data or `rdap_lookup` for structured RDAP.
-WHOIS gives raw text + parsed fields. RDAP gives native JSON.
+`whois_lookup` for WHOIS text + parsed fields, `rdap_lookup` for structured JSON.
 
 ### Unknown or exotic TLD
-Use `tld_info` first to see if WHOIS/RDAP is available, then proceed with the appropriate tool.
+Call `tld_info` first, then pick the appropriate lookup tool based on what it reports.
 
 ## Response Interpretation
 
-- **Status codes** like `clientTransferProhibited`, `serverDeleteProhibited` indicate registry locks
-- **DNSSEC: signedDelegation** means the domain uses DNSSEC
-- **Expiration dates** help identify domains that may become available soon
-- **Referral following** means the tool automatically got thick WHOIS from the registrar
+- Status codes like `clientTransferProhibited`, `serverDeleteProhibited` indicate registry locks
+- `DNSSEC: signedDelegation` means the domain uses DNSSEC
+- Expiration dates help identify domains that may become available soon
+- Referral following means the tool automatically got thick WHOIS from the registrar
 
 ## Limitations
 
 - Some ccTLDs don't have public WHOIS services (the tool will report this)
-- WHOIS rate limits vary by server — bulk checks use configurable concurrency to avoid hitting limits
+- WHOIS rate limits vary by server — bulk checks use configurable concurrency
 - Privacy/proxy services may mask registrant contact information
 - RDAP is not available for all TLDs yet (check with `rdap_bootstrap_info`)

@@ -1,7 +1,7 @@
 {
   "name": "domain-whois-mcp",
-  "version": "1.0.0",
-  "description": "Domain WHOIS & RDAP lookups via native protocols. Check availability, get registrar info, bulk check up to 50 domains, discover TLD infrastructure via IANA. 8 tools, zero API keys.",
+  "version": "1.1.0",
+  "description": "Domain WHOIS/RDAP lookups + project-name finder. 8 MCP tools, 4 skills, 4 slash commands, 1 agent, 2 hooks. Native protocols, bulk availability across TLDs, no API keys.",
   "author": {
     "name": "kemalabuteliyte",
     "url": "https://github.com/kemalabuteliyte"
@@ -17,6 +17,13 @@
     "iana",
     "mcp",
     "domain-lookup",
-    "availability-check"
-  ]
+    "availability",
+    "project-naming",
+    "naming"
+  ],
+  "mcpServers": "./.mcp.json",
+  "commands": "./commands",
+  "skills": "./skills",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json"
 }

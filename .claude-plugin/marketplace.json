@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "domain-whois-marketplace",
-  "description": "Domain WHOIS & RDAP lookup tools for Claude Code — native protocols, IANA discovery, bulk checking.",
+  "description": "Domain WHOIS/RDAP lookups + project-name finder for Claude Code — native protocols, IANA discovery, bulk availability checking, skills, slash commands, agent, and hooks.",
   "owner": {
     "name": "kemalabuteliyte",
     "url": "https://github.com/kemalabuteliyte"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "domain-whois-mcp",
-      "description": "Domain WHOIS & RDAP lookups via native protocols. Check availability, get registrar info, bulk check up to 50 domains concurrently, discover TLD infrastructure via IANA. 8 tools: whois_lookup, rdap_lookup, domain_check, bulk_domain_check, tld_info, whois_raw, find_whois_server, rdap_bootstrap_info. Zero API keys required.",
+      "description": "Full Claude Code plugin for domain research and project naming. 8 MCP tools (whois_lookup, rdap_lookup, domain_check, bulk_domain_check, tld_info, whois_raw, find_whois_server, rdap_bootstrap_info), 4 skills (domain-lookup, project-name-finder, domain-monitor, tld-advisor), 4 slash commands (/check-domain, /find-name, /domain-info, /tld), 1 agent (domain-strategist), and 2 hooks that auto-suggest availability checks when starting a new project. Zero API keys.",
       "category": "development",
       "source": "./",
       "homepage": "https://github.com/kemalabuteliyte/domain-whois-mcp",
@@ -20,7 +20,13 @@
         "domain",
         "dns",
         "iana",
-        "availability"
+        "availability",
+        "project-naming",
+        "naming",
+        "skills",
+        "commands",
+        "agents",
+        "hooks"
       ]
     }
   ]
