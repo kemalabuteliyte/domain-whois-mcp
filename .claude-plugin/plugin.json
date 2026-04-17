@@ -21,9 +21,11 @@
     "project-naming",
     "naming"
   ],
-  "mcpServers": "./.mcp.json",
-  "commands": "./commands",
-  "skills": "./skills",
-  "agents": "./agents",
-  "hooks": "./hooks/hooks.json"
+  "mcpServers": {
+    "domain-whois": {
+      "command": "npx",
+      "args": ["-y", "github:kemalabuteliyte/domain-whois-mcp"]
+    }
+  },
+  "skills": "./skills/"
 }
